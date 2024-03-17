@@ -40,10 +40,7 @@ export const isOwnerOrAdmin = async (req, res, next) => {
       return res.status(404).json({ message: "Product not found" });
     }
 
-    if (
-      product.createdBy.equals(req.user.userId) ||
-      req.user.role === "admin"
-    ) {
+    if (product.createdBy.equals(req.user.id) || req.user.role === "admin") {
       next();
     } else {
       return res
