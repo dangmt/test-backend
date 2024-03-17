@@ -16,7 +16,7 @@ import {
 const router = express.Router();
 
 // Các route khác giữ nguyên
-router.post("/", verifyToken, isAdmin, addProduct);
+router.post("/", verifyToken, addProduct);
 router.get("/", getProducts);
 router.put("/:id", verifyToken, isOwnerOrAdmin, updateProduct);
 router.delete("/:id", verifyToken, isOwnerOrAdmin, deleteProduct);
