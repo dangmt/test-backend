@@ -29,7 +29,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5173", // Cho phép truy cập từ nguồn gốc này
+    origin: process.env.CORS_ORIGIN, // Cho phép truy cập từ nguồn gốc này
   })
 );
 // Tạo router cho AdminJS sử dụng buildRouter từ @adminjs/express
