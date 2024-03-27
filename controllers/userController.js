@@ -58,7 +58,8 @@ export const login = async (req, res) => {
   }
 };
 export const logout = (req, res) => {
-  res.clearCookie("token");
+  res.clearCookie("token", { httpOnly: true, sameSite: "None", secure: true });
+  console.log(req.cookies.token);
   res.status(200).json({ message: "Đăng xuất thành công" });
 };
 export const checkSession = (req, res) => {
